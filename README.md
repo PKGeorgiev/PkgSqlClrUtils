@@ -21,7 +21,11 @@ Notes:
  * You need to have a healty AD domain;
  * The computer on which resides the SQL server must be joined to your AD;
  * You have to access the SQL server / instance by using name (not IP address!);
- * All calls to domain controllers are impersonated (i.e. they run as the authenticated user).
+ * All calls to domain controllers are impersonated (i.e. they run as the authenticated user);
+ * In general the SQL assemblies must be signed. If you're testing with unsigned assembly, your database must be marked as trustworthy:
+   ALTER DATABASE [DB_NAME_HERE]
+     SET TRUSTWORTHY ON
+     WITH ROLLBACK IMMEDIATE 
 
 About CLR functions:
 [CLR functions can be used to access external resources such as files, network resources, Web Services, other databases 
