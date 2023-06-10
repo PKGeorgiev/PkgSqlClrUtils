@@ -1,8 +1,8 @@
 # PkgSqlClrUtils
 
-This project contains custom CLR function for Microsoft SQL server, related to Active Directory.
+This project contains custom CLR functions for Microsoft SQL server, related to Active Directory.
 These functions allow the SQL server to query directly the Active Directory for users, computers, groups etc. 
-The results are populated much faster than using the AD provider via Linked Servers.
+The results are retrieved much faster than using the AD provider via Linked Servers.
 
 List of CLR functions:
 GetAttributes
@@ -14,6 +14,14 @@ GetQueryAttributes
 GetServers
 GetUsers
 SplitString
+
+They use classes and methods located in PkgLdapUtils (the core AD library). The method LdapQueryMany uses tasks to increase the performance.
+
+Notes:
+ * You need to have a healty AD domain;
+ * The computer on which resides the SQL server must be joined to your AD;
+ * You have to access the SQL server / instance by using name (not IP address!);
+ * All calls to domain controllers are impersonated (i.e. they run as the authenticated user).
 
 About CLR functions:
 [CLR functions can be used to access external resources such as files, network resources, Web Services, other databases 
