@@ -4,16 +4,16 @@ This project contains custom CLR functions for Microsoft SQL server, related to 
 These functions allow the SQL server to query directly the Active Directory for users, computers, groups etc. 
 The results are retrieved much faster than using the AD provider via Linked Servers.
 
-List of CLR functions:
-GetAttributes
-GetComputers
-GetDomainControllers
-GetGroups
-GetMembership
-GetQueryAttributes
-GetServers
-GetUsers
-SplitString
+List of CLR functions:  
+GetAttributes  
+GetComputers  
+GetDomainControllers  
+GetGroups  
+GetMembership  
+GetQueryAttributes  
+GetServers  
+GetUsers  
+SplitString  
 
 They use classes and methods located in PkgLdapUtils (the core AD library). The method LdapQueryMany uses tasks to increase the performance.
 
